@@ -20,7 +20,7 @@ class ProductController {
 
   async store(request, response) {
     const {
-      name, description, price, image_url, ingredients, additional, category_id,
+      name, description, price, image_url, ingredients, category_id,
     } = request.body;
 
     if (!name) {
@@ -28,7 +28,7 @@ class ProductController {
     }
 
     const product = await ProductsRepository.create({
-      name, description, price, image_url, ingredients, additional, category_id,
+      name, description, price, image_url, ingredients, category_id,
     });
 
     response.json(product);
@@ -37,7 +37,7 @@ class ProductController {
   async update(request, response) {
     const { id } = request.params;
     const {
-      name, description, price, image_url, ingredients, additional, category_id,
+      name, description, price, image_url, ingredients, category_id,
     } = request.body;
 
     if (!name) {
@@ -45,7 +45,7 @@ class ProductController {
     }
 
     const product = await ProductsRepository.update(id, {
-      name, description, price, image_url, ingredients, additional, category_id,
+      name, description, price, image_url, ingredients, category_id,
     });
 
     response.json(product);

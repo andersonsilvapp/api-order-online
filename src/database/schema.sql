@@ -3,20 +3,17 @@ CREATE DATABASE orderOnline;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE IF NOT EXISTS categories (
-  id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
+  id SERIAL UNIQUE,
   name VARCHAR NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS products (
-  id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
+  id SERIAL UNIQUE,
   name VARCHAR NOT NULL,
   description VARCHAR,
+  price MONEY NOT NULL,
+  image_url VARCHAR,
   ingredients VARCHAR,
-  additional VARCHAR,
-  category_id UUID,
+  category_id SERIAL,
   FOREIGN KEY(category_id) REFERENCES categories(id)
 );
-
-ALTER TABLE products
-  ADD COLUMN price VARCHAR NOT NULL,
-  ADD COLUMN image_url VARCHAR;
