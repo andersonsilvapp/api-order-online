@@ -16,3 +16,7 @@ CREATE TABLE IF NOT EXISTS products (
   category_id UUID,
   FOREIGN KEY(category_id) REFERENCES categories(id)
 );
+
+ALTER TABLE products
+  ADD COLUMN price VARCHAR NOT NULL,
+  ADD COLUMN image_url VARCHAR;
