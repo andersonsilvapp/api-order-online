@@ -27,6 +27,10 @@ class ProductController {
       return response.status(400).json({ error: 'Name is required' });
     }
 
+    if (!category_id) {
+      return response.status(400).json({ error: 'Category is required' });
+    }
+
     const product = await ProductsRepository.create({
       name, description, price, image_url, ingredients, category_id,
     });
