@@ -5,7 +5,7 @@ class ProductsRepository {
     const rows = await db.query(`
       SELECT *
       FROM products
-      ORDER BY name
+      ORDER BY id
     `);
     return rows;
   }
