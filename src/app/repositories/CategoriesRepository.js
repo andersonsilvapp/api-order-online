@@ -5,7 +5,7 @@ class CategoriesRepository {
     const rows = await db.query(`
       SELECT *
       FROM categories
-      ORDER BY name
+      ORDER BY id
     `);
     return rows;
   }
